@@ -1,18 +1,3 @@
-// class AppFontSizes {
-//   // Headings
-//   static const double headingLarge = 32.0; // Main titles
-//   static const double headingMedium = 24.0; // Secondary titles
-
-//   // Body text
-//   static const double bodyLarge = 18.0; // Button text, prominent labels
-//   static const double bodyRegular = 16.0; // Standard text, form hints
-//   static const double bodySmall = 14.0; // Secondary text, captions
-
-//   // Labels
-//   static const double label = 12.0; // Error messages, footnotes
-// }
-
-
 import 'package:flutter/material.dart';
 
 class AppTypography {

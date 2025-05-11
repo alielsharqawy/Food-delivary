@@ -1,6 +1,9 @@
 import 'package:app/data/cubits/auth/login/login_cubit.dart';
 import 'package:app/data/cubits/auth/register/register_cubit.dart';
+import 'package:app/data/cubits/chats/chats_cubit.dart';
 import 'package:app/data/repos/auth/auth_repo.dart';
+import 'package:app/data/repos/chats/chats_repo.dart';
+import 'package:app/presentation/chat/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,13 +25,12 @@ class MyApp extends StatelessWidget {
 
     return MultiBlocProvider(
       providers: [
-        BlocProvider<AuthCubit>(
-          create: (_) => AuthCubit(authRepo),
+        BlocProvider<AuthCubit>(create: (_) => AuthCubit(authRepo)),
+        BlocProvider<RegisterCubit>(create: (_) => RegisterCubit(authRepo)),
+        BlocProvider(
+          create: (_) => ChatCubit(ChatRepository()),
+          child: const ChatScreen(),
         ),
-        BlocProvider<RegisterCubit>(
-          create: (_) => RegisterCubit(authRepo),
-        ),
-        // يمكنك إضافة المزيد من الـ Cubits هنا لاحقًا
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

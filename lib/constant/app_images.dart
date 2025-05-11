@@ -8,4 +8,5 @@ class AppImages{
    static const String facebookIcon= "$imagePath/facebook.png";
    static const String googleIcon = "$imagePath/google.png";
    static const String appleIcon = "$imagePath/apple.png";
+   static const String homeImage = "$imagePath/home.png";
 }

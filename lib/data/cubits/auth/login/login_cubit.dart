@@ -1,7 +1,7 @@
-import 'package:app/data/cubits/auth/login/login_state.dart';
-import 'package:app/data/repos/auth/auth_repo.dart';
+import 'package:app/data/models/auth_model.dart'; // for AuthUser
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'login_state.dart';
+import 'package:app/data/repos/auth/auth_repo.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   final AuthRepository _authRepository;
@@ -16,5 +16,12 @@ class AuthCubit extends Cubit<AuthState> {
     } catch (e) {
       emit(AuthFailure(e.toString()));
     }
+  }
+
+  AuthUser? get currentUser {
+    if (state is AuthSuccess) {
+      return (state as AuthSuccess).user;
+    }
+    return null;
   }
 }
